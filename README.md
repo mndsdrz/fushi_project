@@ -2016,3 +2016,94 @@ for i in rank_result:
 ## 相关论文研读
 
 [Transformer](https://gitee.com/mndsdrz/fushi20240230/raw/master/%E9%A1%B9%E7%9B%AE4%EF%BC%9A%E5%9F%BA%E4%BA%8E%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%90%9C%E7%B4%A2%E6%8E%92%E5%BA%8F%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/Transformer.pdf)
+
+
+# 大模型应用
+
+## 使用python调用大模型API实现带有GUI界面的大模型对话
+### 背景
+对话平台是一个基于大模型技术的智能聊天机器人，使用python实现了GUI界面，支持用户与多种大模型（如Deepseek、通义千问等）进行实时对话，并可根据需求动态切换模型。平台旨在为用户提供高效、灵活、智能的对话体验，适用于多种场景，以满足对大模型日常需求。
+
+### 主要功能
+输入框：用户可以在输入框中输入对话内容。
+![input](./public/input.png)
+输出框：将用户输入的内容传递给大模型，并显示模型的回复。
+![output](./public/output.png)
+
+### 主要代码
+```python
+import tkinter as tk
+from tkinter import scrolledtext, font
+from openai import OpenAI
+
+class ChatApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("大模型聊天")
+        self.root.geometry("600x500")
+        self.root.configure(bg="#f0f0f0")
+
+        # 聊天区域
+        self.chat_area = scrolledtext.ScrolledText(
+            root, wrap=tk.WORD, state="disabled", bg="#ffffff", bd=0, highlightthickness=0
+        )
+        self.chat_area.place(x=10, y=10, width=580, height=400)
+        self.chat_area.tag_configure("user", justify="right", background="#e3f2fd", relief="flat", borderwidth=5)
+        self.chat_area.tag_configure("bot", justify="left", background="#f5f5f5", relief="flat", borderwidth=5)
+
+        # 输入框
+        self.input_frame = tk.Frame(root, bg="#ffffff", bd=0)
+        self.input_frame.place(x=10, y=420, width=580, height=70)
+
+        self.input_field = tk.Text(
+            self.input_frame, wrap=tk.WORD, bg="#ffffff", bd=0, highlightthickness=0, font=("Arial", 12)
+        )
+        self.input_field.place(x=5, y=5, width=470, height=60)
+        self.input_field.bind("<Return>", self.send_message)
+
+        # 发送按钮
+        self.send_button = tk.Button(
+            self.input_frame, text="发送", bg="#007bff", fg="black", font=("Arial", 12), bd=0, command=self.send_message
+        )
+        self.send_button.place(x=480, y=5, width=90, height=60)
+
+    def send_message(self, event=None):
+        user_message = self.input_field.get("1.0", tk.END).strip()
+        if user_message:
+            self.display_message(user_message, "user")
+            self.input_field.delete("1.0", tk.END)
+
+            # 调用Deepseek API
+            bot_response = self.get_bot_response(user_message)
+            self.display_message(bot_response, "bot")
+
+    def display_message(self, message, sender):
+        self.chat_area.config(state="normal")
+        if sender == "user":
+            self.chat_area.insert(tk.END, f"{message}\n", "user")
+        else:
+            self.chat_area.insert(tk.END, f"{message}\n", "bot")
+        self.chat_area.config(state="disabled")
+        self.chat_area.yview(tk.END)
+
+    def get_bot_response(self, user_message):
+        client = OpenAI(
+            api_key="", # 输入你的api_key
+            base_url=""# 输入你的base_url
+        )
+
+        response = client.chat.completions.create(
+            model="glm-4-flash",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant"},
+                {"role": "user", "content": user_message},
+            ],
+            stream=False
+        )
+        print(response.choices[0].message.content)
+        return response.choices[0].message.content
+    
+root = tk.Tk()
+app = ChatApp(root)
+root.mainloop()
+```
