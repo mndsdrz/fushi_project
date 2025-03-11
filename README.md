@@ -35,7 +35,7 @@ Java，SpringBoot，Vue+Element，MySql，mybatis，百度AI
 集成百度AI能力，实现图片文字识别，图片物品识别，文字纠错，历史使用记录。
 
 <br><br>
-## 模块1：NLP纠错
+### 模块1：NLP纠错
 
 ***输入需要纠错的文字***
 
@@ -48,7 +48,7 @@ Java，SpringBoot，Vue+Element，MySql，mybatis，百度AI
 ![以获得纠错后正确的句子](./public/Img/可以获得纠错后正确的句子.png)
 
 <br><br>
-## 模块2：图像识别
+### 模块2：图像识别
 
 ***上传照片***
 
@@ -67,7 +67,7 @@ Java，SpringBoot，Vue+Element，MySql，mybatis，百度AI
 ![自动识别图片内物品种类](./public/Img/自动识别图片内物品种类.png)
 
 <br><br>
-## 模块3：文字识别
+### 模块3：文字识别
 
 ***上传需要识别文字的图片***
 
@@ -86,7 +86,7 @@ Java，SpringBoot，Vue+Element，MySql，mybatis，百度AI
 ![自动识别图片内的文字](./public/Img/自动识别图片内的文字.png)
 
 <br><br>
-## 模块4：历史记录
+### 模块4：历史记录
 
 ***由于本项目使用了MySql来记录使用数据，使用上述的三个模块后，获得的三条历史记录***
 
