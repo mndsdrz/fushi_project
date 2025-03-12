@@ -2107,3 +2107,104 @@ root = tk.Tk()
 app = ChatApp(root)
 root.mainloop()
 ```
+
+## 2.使用大模型应用框架langchain实现基于大模型的智能体
+### langchain 核心组件
+- **模型输入/输出**:LangChain 中模型输入/输出模块是与各种大语言模型进行交互的基本组件，是大语言模型应用的核心元素。模型 I/O 允许您管理 prompt（提示），通过通用接口调用语言模型以及从模型输出中提取信息。
+
+- **提示词模板(promptTemplate)**:提示词模板的主要作用是将用户输入、检索到的知识以及生成任务的要求以一种结构化的方式组合起来，帮助模型更好地理解任务需求并生成高质量的结果。
+
+- **链(Chain)**:虽然独立使用大型语言模型能够应对一些简单任务，但对于更加复杂的需求，可能需要将多个大型语言模型进行链式组合，或与其他组件进行链式调用。链允许将多个组件组合在一起，创建一个单一的、连贯的应用程序。例如，可以创建一个链，接受用户输入，使用 PromptTemplate 对其进行格式化，然后将格式化后的提示词传递给大语言模型。也可以通过将多个链组合在一起或将链与其他组件组合来构建更复杂的链。
+
+- **记忆(Memory)**:在 LangChain 中，记忆（Memory）指的是大语言模型（LLM）的短期记忆。为什么是短期记忆？那是因为 LLM 训练好之后 (获得了一些长期记忆)，它的参数便不会因为用户的输入而发生改变。当用户与训练好的LLM进行对话时，LLM 会暂时记住用户的输入和它已经生成的输出，以便预测之后的输出，而模型输出完毕后，它便会“遗忘”之前用户的输入和它的输出。因此，之前的这些信息只能称作为 LLM 的短期记忆。正如上面所说，在与语言模型交互时，你可能已经注意到一个关键问题：它们并不记忆你之前的交流内容，这在我们构建一些应用程序（如聊天机器人）的时候，带来了很大的挑战，使得对话似乎缺乏真正的连续性。因此，在本节中我们将介绍 LangChain 中的记忆模块，即如何将先前的对话嵌入到语言模型中的，使其具有连续对话的能力。
+
+- **代理/智能体(Agents)**:大型语言模型（LLMs）非常强大，但它们缺乏“最笨”的计算机程序可以轻松处理的特定能力。LLM 对逻辑推理、计算和检索外部信息的能力较弱，这与最简单的计算机程序形成对比。例如，语言模型无法准确回答简单的计算问题，还有当询问最近发生的事件时，其回答也可能过时或错误，因为无法主动获取最新信息。这是由于当前语言模型仅依赖预训练数据，与外界“断开”。要克服这一缺陷， LangChain 框架提出了 “代理”( Agent ) 的解决方案。代理作为语言模型的外部模块，可提供计算、逻辑、检索等功能的支持，使语言模型获得异常强大的推理和获取信息的超能力。
+
+### 技术栈
+Python，Langchain，PromptTemplate 
+
+### 主要代码
+1.使用openai的官方sdk实现对话
+```python
+import os
+from openai import OpenAI
+
+apiKey = "" # 你的apiKey
+baseUrl="" # 你的baseUrl
+
+# 初始化大模型客户端
+client = OpenAI(
+    api_key=apiKey, 
+    base_url=baseUrl,
+)
+
+#聊天
+response = client.chat.completions.create(
+    model="glm-4-flash", 
+    messages=[
+        {'role': 'system', 'content': 'You are a helpful assistant.'},
+        {'role': 'user', 'content': '你是谁？'}],
+    )
+# 输出大模型结果
+print(response.model_dump_json())
+
+print("\n")
+# 输出内容
+print(response.choices[0].message.content)
+```
+
+    {"id":"20250310120927290db866eb994f99","choices":[{"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"我是一个名为 ChatGLM 的人工智能助手，是基于清华大学 KEG 实验室和智谱 AI 公司于 2024 年共同训练的语言模型开发的。我的任务是针对用户的问题和要求提供适当的答复和支持。","refusal":null,"role":"assistant","audio":null,"function_call":null,"tool_calls":null}}],"created":1741579768,"model":"glm-4-flash","object":null,"service_tier":null,"system_fingerprint":null,"usage":{"completion_tokens":47,"prompt_tokens":16,"total_tokens":63,"completion_tokens_details":null,"prompt_tokens_details":null},"request_id":"20250310120927290db866eb994f99"}
+    
+    
+    我是一个名为 ChatGLM 的人工智能助手，是基于清华大学 KEG 实验室和智谱 AI 公司于 2024 年共同训练的语言模型开发的。我的任务是针对用户的问题和要求提供适当的答复和支持。
+
+2.使用langchain框架实现对话
+```python
+from langchain_openai import ChatOpenAI
+import os
+
+llm = ChatOpenAI(
+    model="glm-4-flash",
+    temperature=0,
+    api_key=apiKey,
+    base_url=baseUrl
+    )
+llm.predict("介绍下你自己")
+```
+
+    C:\Users\gzx12\AppData\Local\Temp\ipykernel_5064\601782110.py:10: LangChainDeprecationWarning: The method `BaseChatModel.predict` was deprecated in langchain-core 0.1.7 and will be removed in 1.0. Use :meth:`~invoke` instead.
+      llm.predict("介绍下你自己")
+    
+
+    '你好，我是一个人工智能助手，名叫 ChatGLM。我是基于清华大学 KEG 实验室和智谱 AI 公司于 2024 年共同训练的语言模型 GLM-4 开发的。我的任务是针对用户的问题和要求提供适当的答复和支持。由于我是一个计算机程序，所以我没有自我意识，也不能像人类一样感知世界。我只能通过分析我所接收到的信息来提供帮助。'
+
+3.实现起名大师智能体
+
+**背景**:如今越来越多的人开始利用人工智能为自己的孩子取名，或者为游戏中的角色创造独特而富有意义的名字。该通过结合诗意与文化典故，生成既优美又富含深意的名字。项目以 LangChain 作为核心开发框架，充分利用其灵活的工具链和模块化设计，构建了一个高效的命名生成系统。采用了 Prompt Template 工具来精心设计提示词模板，确保生成的名字不仅符合用户的个性化需求，还兼具文化底蕴和艺术美感。
+
+```python
+#起名大师
+from langchain.prompts import PromptTemplate
+prompt = PromptTemplate.from_template("你是一个起名大师,请根据四书五经取几个{first}姓的{sex}孩名字")
+message = prompt.format(first="王",sex="男")
+print(message)
+llm.predict(message)
+```
+
+    你是一个起名大师,请根据四书五经取几个王姓的男孩名字
+    
+
+    '1. 王经纶\n2. 王仁义\n3. 王道远\n4. 王学博\n5. 王志圣\n6. 王文轩\n7. 王思诚\n8. 王德润\n9. 王子轩\n10. 王经世'
+
+4.实现广告语智能体
+```python
+# 广告语智能体
+from langchain.chains import LLMChain
+prompt_template = "帮我给{product}写一段广告宣传语?"
+llm_chain = LLMChain(
+    llm=llm,
+    prompt=PromptTemplate.from_template(prompt_template),
+)
+llm_chain("AR眼镜")
+```
+    {'product': 'AR眼镜', 'text': '"未来视界，尽在掌握——探索无限可能，AR眼镜，开启智能新视界！"'}
