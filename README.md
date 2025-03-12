@@ -2340,3 +2340,97 @@ chat_doc.chatWithDoc("Spring Boot 的优点有那些？")
 ```
 SystemMessage(content=你是一个处理文档的秘书,你会根据下面提供的上下文内容来继续回答问题,上下文内容\n问题一\n\n什么是SpringBoot?\nn多年米,随者新功能的增加,spring变得越来越复杂.只需访问https:/spring.io/projects\n页面,我们就会看到可以在我们的应用程序中使用的所有Spring项目的不同功能.如果必\n须启动一个新Spring项目,我们必须添加构建路径或添加Maven依赖关系,配置应用程\n序服务器,添加spring配置.因此,开始一个新的spring项目需要很多努力,因为我们现\n在必须从头开始做所有事情.\n \nspring Boot是解决这个问题的方法.Spring Boot已经建立在现有spring框架之上.使用\nspring启动,我们避兔了之前我们必须做的所有样板代码和配置.因此,Spring Boot可以\n帮助我们以最少的工作量,更加健壮地使用现有的Spring功能.\n\n问题二\n\nSpring Boot有哪些优点?\n\nSpring Boot的优点有:减少开发,测试时间和努力,\n使用JavaConfig有助于避免使用ML,\n避免大量的Maven导入和各种版本冲突,\n提供意见发展方法,\n通过提供默认值快速开始开发,\n没后添加\n用@Bean注释的方法,Spring将自动加载对象并像以前一样对其进行管理.您甚至可以将\n@Autowired添加到bean方法中,以使Spring自动装入需要的依赖关系中.\n基于环境的配置使用这些属性,您可以将您正在使用的环境传递到应用程序:-\nDspring.profiles.active=(enviornment】.在加载主应用程序属性文件后,Spring将在\n(applicatio{environment},properties)中加载后续的应用程序属性文件.\n\n问题三\n\n什么是JavaConfig?\n\nSpring JavaConfig是Spring社区的产品,它提供了配置SpringoC容器的纯Java方法.因此\n它有助于避兔使用XL配置.使用JavaConfig的优点在于:\n\n面向对象的配置.由于配置被定义为JavaConfig中的类,因此用户可以充分利用中的\n面向对象功能一个配置类可以继承另一个,重写它的@Bean方法等.\减少或消除州L配置.基于依赖注入原则的外化配置的好处已被证明.但是,许多开发人问题\n\n什么是Spring Boot?\n\n多年来,随着新功能的增加,spring变得越来越复杂.只需访问https:/spring.io/projects\n页面,我们就会看到可以在我们的应用程序中使用的所Spring项日的不同功能.如果必\n须启动一个新的Spring项目,我们必须添加构建路径或添加Maven依赖关系,配置应用程\n序服务器,添加spring配置.因此,开始一个新的spring项目需要很多努力,因为我们现\n在必须从头开始做所有事情.\n\nSpring Boot是解决这个问题的方法.Spring Boot已经建立在现有spring框架之上.使用\nspring启动·我们避免了之前我们必须做的所有样板代码和配置.因此,Spring Boot可以\n帮助我们以最少的工作量,更加健壮地使用现有的Spring功能.\n\n问题二\n\nSpring Boot有哪些优点?\n\nSpring Boot的优点有:\n\n减少开发,测试时间和努力.\n使用JavaConfig有助于避兔使用XML.\n避兔大量的Maven导入和各种版本冲突.\n提供意见发展方法.通过提供默认值快速开始开发.\n没有单独的Web服务器需要.这意味若你不再需要启动Tomcat,Glassfish或其他任何东\n西.\n需要更少的配置因为没有web.xml文件.只需添加用@Configuration注释的类,然后添加n用@Bean注释的方法,Spring将自动加载对象并像以前一样对其进行管理.您甚至可以将\n@Autowired添加到bean方法中,以使Spring自动装入需要的依赖关系中.\n基于环境的配置使用这些属性,您可以将您正在使用的环境传递到应用程序:-\nDspring,profiles:active.i(enviornment).在加载主应用程序属性文件后,Spring将在\n(application(environment),properties)中加载后续的应用程序属性文件.\n\n问题三\n\n什么是3 avaConfig?n \nSpring JavaCont是Spring社区的产品,它提供了配置Spring Ioc容器的纯Java方法.因此\n它有助于避免使用XML配置.使用JavaConfig的优点在于:n八n面向对像的置.,由于配置被定义为JavaConfig中的类,因此用户可以充分利用Java中的\n面向对象功能.一个配置类可以继承另一个,重写它的@Bean方法等.1减少或消除L配置.基于依赖注入原则的外化配置的好处己被证明.但是,许多开发人用于生成RESTfu.1Wb服务的可视化表示的工具,规范和完整框架实现.它使文档能够以\n与服务器相同的速度更新.当通过Swagger正确定义时,消费者可以使用最少量的实现逻\n辑来理解远程服务并与其进行交互.因此,Swagger消除了调用服务时的猜测.\nn问题十三n\n什么是Spring Profiles?\n\nSpringProfiles允许用户根据配置文件(dev,test,prod等)来注册bean.因此,当应用\n程序在开发中运行时,只有某些bean可以加载,而在PRODUCTION中,某些其他bean可\n以加载.假设我们的要求是Swagger文档仅适用于QA环境,并且禁用所有其他文档.这\n可以使用配置文件来完成.Spring Boot使得使用配置文件非常简单.\n\n问题十四\n\n什么Spring Batch?\n\nSpring Boot Batch提供可重用的函数,这些函数在处理大量记录时非常重要,包括日志/跟\n踪,事务管理,作业处理统计信息,作业重新启动,跳过和资源管它还提供了更先进\的技术服务和功能,通过优化和分区技术,可以实现极高批量和高性能批处理作业.简单\以及复杂的大批量批处理作业可以高度可扩展的方式利用框架处理重要大量的信息\n\n问题十五n\n什么是FreeMarker模板?\n \nFreeMarker是一个基于Java的模板引擎,最初专注于使用VC软件架构进行动态网页生\n成.使用Freemarker的主要优点是表示层和业务层的完全分离.程序员可以处理应用程序\n代码,而设计人员可以处理html页面设计.最后使用freemarker可以将这些结合起来,给\n出最终的输出页面,\n问题十六n\n如何使用】Spring Boot实现异常处理?\n\nSpring提供了一种使用ControllerAdvice处理异常的非常有用的方法.我们通过实现一个\nControlerAdvice来处理控制器类抛出的所有异常.\n\n问题十七\n\n您使用了哪些starter maven依赖项?\n\n使用了下面的一些依赖项\n',additional_kwargs:=(),response_.meta
 ```
+## 4.基于 LangChain 的智能数学计算 Agent
+### 主要代码
+```python
+from langchain_core.tools import tool
+
+# 加法工具
+@tool
+def add(first_int: int, second_int: int) -> int:
+    "Add two integers."
+    return first_int + second_int
+
+# 乘法工具
+@tool
+def multiply(first_int: int, second_int: int) -> int:
+    """Multiply two integers together."""
+    return first_int * second_int
+
+# 阶乘工具
+@tool
+def exponentiate(base: int, exponent: int) -> int:
+    "Exponentiate the base to the exponent power."
+    return base**exponent
+
+
+tools = [add,multiply,exponentiate]
+from langchain import hub
+from langchain.agents import AgentExecutor, create_openai_tools_agent
+from langchain_openai import ChatOpenAI
+# 获取一个官方的Agent 的Prompt工具，当然你也可以自己写
+prompt = hub.pull("hwchase17/openai-tools-agent")
+prompt.pretty_print()
+
+# 初始化大模型
+llm = ChatOpenAI(
+    model="glm-4-flash",
+    temperature=0,
+    api_key="",# 你的apiKey
+    base_url="https://open.bigmodel.cn/api/paas/v4/"
+)
+
+# 将大模型和工具和提示词组件成为一个Agent
+agent = create_openai_tools_agent(llm, tools, prompt)
+
+# 创建一个Agent执行器，将Agent传进去
+agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+# 执行Agent
+agent_executor.invoke(
+    {
+        "input": "将3的五次方与十二和三的和相乘，然后对整个结果进行平方。"
+    }
+)
+```
+输出
+```
+================================ System Message ================================
+
+You are a helpful assistant
+
+============================= Messages Placeholder =============================
+
+{chat_history}
+
+================================ Human Message =================================
+
+{input}
+
+============================= Messages Placeholder =============================
+
+{agent_scratchpad}
+
+
+> Entering new AgentExecutor chain...
+
+Invoking: `exponentiate` with `{'base': 3, 'exponent': 5}`
+
+
+243
+Invoking: `add` with `{'first_int': 12, 'second_int': 3}`
+
+
+15
+Invoking: `multiply` with `{'first_int': 243, 'second_int': 15}`
+
+
+3645
+Invoking: `exponentiate` with `{'base': 3645, 'exponent': 2}`
+
+
+132860253的五次方与十二和三的和相乘的结果是3645，然后将这个结果平方得到13286025。
+
+> Finished chain.
+{'input': '将3的五次方与十二和三的和相乘，然后对整个结果进行平方。',
+ 'output': '3的五次方与十二和三的和相乘的结果是3645，然后将这个结果平方得到13286025。'}
+ ```
