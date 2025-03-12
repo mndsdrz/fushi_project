@@ -2341,6 +2341,26 @@ chat_doc.chatWithDoc("Spring Boot 的优点有那些？")
 SystemMessage(content=你是一个处理文档的秘书,你会根据下面提供的上下文内容来继续回答问题,上下文内容\n问题一\n\n什么是SpringBoot?\nn多年米,随者新功能的增加,spring变得越来越复杂.只需访问https:/spring.io/projects\n页面,我们就会看到可以在我们的应用程序中使用的所有Spring项目的不同功能.如果必\n须启动一个新Spring项目,我们必须添加构建路径或添加Maven依赖关系,配置应用程\n序服务器,添加spring配置.因此,开始一个新的spring项目需要很多努力,因为我们现\n在必须从头开始做所有事情.\n \nspring Boot是解决这个问题的方法.Spring Boot已经建立在现有spring框架之上.使用\nspring启动,我们避兔了之前我们必须做的所有样板代码和配置.因此,Spring Boot可以\n帮助我们以最少的工作量,更加健壮地使用现有的Spring功能.\n\n问题二\n\nSpring Boot有哪些优点?\n\nSpring Boot的优点有:减少开发,测试时间和努力,\n使用JavaConfig有助于避免使用ML,\n避免大量的Maven导入和各种版本冲突,\n提供意见发展方法,\n通过提供默认值快速开始开发,\n没后添加\n用@Bean注释的方法,Spring将自动加载对象并像以前一样对其进行管理.您甚至可以将\n@Autowired添加到bean方法中,以使Spring自动装入需要的依赖关系中.\n基于环境的配置使用这些属性,您可以将您正在使用的环境传递到应用程序:-\nDspring.profiles.active=(enviornment】.在加载主应用程序属性文件后,Spring将在\n(applicatio{environment},properties)中加载后续的应用程序属性文件.\n\n问题三\n\n什么是JavaConfig?\n\nSpring JavaConfig是Spring社区的产品,它提供了配置SpringoC容器的纯Java方法.因此\n它有助于避兔使用XL配置.使用JavaConfig的优点在于:\n\n面向对象的配置.由于配置被定义为JavaConfig中的类,因此用户可以充分利用中的\n面向对象功能一个配置类可以继承另一个,重写它的@Bean方法等.\减少或消除州L配置.基于依赖注入原则的外化配置的好处已被证明.但是,许多开发人问题\n\n什么是Spring Boot?\n\n多年来,随着新功能的增加,spring变得越来越复杂.只需访问https:/spring.io/projects\n页面,我们就会看到可以在我们的应用程序中使用的所Spring项日的不同功能.如果必\n须启动一个新的Spring项目,我们必须添加构建路径或添加Maven依赖关系,配置应用程\n序服务器,添加spring配置.因此,开始一个新的spring项目需要很多努力,因为我们现\n在必须从头开始做所有事情.\n\nSpring Boot是解决这个问题的方法.Spring Boot已经建立在现有spring框架之上.使用\nspring启动·我们避免了之前我们必须做的所有样板代码和配置.因此,Spring Boot可以\n帮助我们以最少的工作量,更加健壮地使用现有的Spring功能.\n\n问题二\n\nSpring Boot有哪些优点?\n\nSpring Boot的优点有:\n\n减少开发,测试时间和努力.\n使用JavaConfig有助于避兔使用XML.\n避兔大量的Maven导入和各种版本冲突.\n提供意见发展方法.通过提供默认值快速开始开发.\n没有单独的Web服务器需要.这意味若你不再需要启动Tomcat,Glassfish或其他任何东\n西.\n需要更少的配置因为没有web.xml文件.只需添加用@Configuration注释的类,然后添加n用@Bean注释的方法,Spring将自动加载对象并像以前一样对其进行管理.您甚至可以将\n@Autowired添加到bean方法中,以使Spring自动装入需要的依赖关系中.\n基于环境的配置使用这些属性,您可以将您正在使用的环境传递到应用程序:-\nDspring,profiles:active.i(enviornment).在加载主应用程序属性文件后,Spring将在\n(application(environment),properties)中加载后续的应用程序属性文件.\n\n问题三\n\n什么是3 avaConfig?n \nSpring JavaCont是Spring社区的产品,它提供了配置Spring Ioc容器的纯Java方法.因此\n它有助于避免使用XML配置.使用JavaConfig的优点在于:n八n面向对像的置.,由于配置被定义为JavaConfig中的类,因此用户可以充分利用Java中的\n面向对象功能.一个配置类可以继承另一个,重写它的@Bean方法等.1减少或消除L配置.基于依赖注入原则的外化配置的好处己被证明.但是,许多开发人用于生成RESTfu.1Wb服务的可视化表示的工具,规范和完整框架实现.它使文档能够以\n与服务器相同的速度更新.当通过Swagger正确定义时,消费者可以使用最少量的实现逻\n辑来理解远程服务并与其进行交互.因此,Swagger消除了调用服务时的猜测.\nn问题十三n\n什么是Spring Profiles?\n\nSpringProfiles允许用户根据配置文件(dev,test,prod等)来注册bean.因此,当应用\n程序在开发中运行时,只有某些bean可以加载,而在PRODUCTION中,某些其他bean可\n以加载.假设我们的要求是Swagger文档仅适用于QA环境,并且禁用所有其他文档.这\n可以使用配置文件来完成.Spring Boot使得使用配置文件非常简单.\n\n问题十四\n\n什么Spring Batch?\n\nSpring Boot Batch提供可重用的函数,这些函数在处理大量记录时非常重要,包括日志/跟\n踪,事务管理,作业处理统计信息,作业重新启动,跳过和资源管它还提供了更先进\的技术服务和功能,通过优化和分区技术,可以实现极高批量和高性能批处理作业.简单\以及复杂的大批量批处理作业可以高度可扩展的方式利用框架处理重要大量的信息\n\n问题十五n\n什么是FreeMarker模板?\n \nFreeMarker是一个基于Java的模板引擎,最初专注于使用VC软件架构进行动态网页生\n成.使用Freemarker的主要优点是表示层和业务层的完全分离.程序员可以处理应用程序\n代码,而设计人员可以处理html页面设计.最后使用freemarker可以将这些结合起来,给\n出最终的输出页面,\n问题十六n\n如何使用】Spring Boot实现异常处理?\n\nSpring提供了一种使用ControllerAdvice处理异常的非常有用的方法.我们通过实现一个\nControlerAdvice来处理控制器类抛出的所有异常.\n\n问题十七\n\n您使用了哪些starter maven依赖项?\n\n使用了下面的一些依赖项\n',additional_kwargs:=(),response_.meta
 ```
 ## 4.基于 LangChain 的智能数学计算 Agent
+
+### 背景
+大语言模型擅长文本生成，但是不太擅长数学计算，例如涉及加法、乘法、幂运算等操作的组合问题，为了解决这个问题，开发了一个智能数学计算 Agent，能够理解自然语言描述的复杂数学问题，并通过调用预定义的工具链（如加法、乘法、幂运算）自动完成计算任务。该项目旨在展示如何利用 LangChain 框架构建一个灵活且强大的 Agent 系统，从而将自然语言处理与具体任务执行相结合，提升计算任务的自动化水平。
+
+### 技术栈
+Python、LangChain、tool、AgentPrompt 模板、 AgentExecutor
+
+### Agent 的关键组件
+1. Schema: LangChain 提供了多个抽象概念以便于与智能体（Agent）一起工作。Schema 是这些抽象概念的一部分，它定义了智能体如何理解和使用数据。
+2. AgentAction: 这是一个数据类，代表智能体应该采取的行动。它包含 tool 属性（要调用的工具的名称）和 tool_input 属性（该工具的输入）。
+3. AgentFinish: 表示智能体的最终结果，即当智能体准备好返回给用户时的状态。它包含一个 return_values 键值对映射，通常包含一个 output 键，其中包含智能体的响应。
+4. Intermediate Steps: 这些代表了智能体之前采取的行动和这些行动产生的当前智能体运行的相应输出。这些步骤对于传递给未来的迭代非常重要，以便智能体知道它已经完成了哪些工作。在类型上，它被表示为 List[Tuple[AgentAction, Any]]，其中 Any类型用于最大化灵活性，通常是一个字符串。
+5. Agent: 负责决定接下来采取哪一步的链。这通常由语言模型、提示（prompt）和输出解析器（output parser）提供动力。
+6. Agent Inputs: 智能体的输入是一个键值对映射。其中唯一必需的键是 intermediate_steps，它对应于上述的中间步骤。
+7. Agent Outputs: 输出是接下来要采取的行动或最终要发送给用户的响应。具体来说，这可以被类型化为 Union[AgentAction, List[AgentAction], AgentFinish]。
+8. AgentExecutor: 智能体执行器是智能体的运行时环境。它负责调用智能体，执行智能体选择的行动，将行动输出传回智能体，并重复这一过程。这个执行器处理了许多复杂性，包括处理智能体选择不存在的工具的情况、工具出错的情况、智能体产生的无法解析为工具调用的输出的情况，以及在所有级别（智能体决策、工具调用）上的日志记录和可观察性。
+
+### 功能
+通过将大模型与工具链集成，实现了复杂数学问题的自动化求解，显著提升了计算效率与计算准确信。Agent 支持多步骤推理和动态工具调用，能够适应各种复杂的数学运算场景。
+
 ### 主要代码
 ```python
 from langchain_core.tools import tool
@@ -2434,3 +2454,5 @@ Invoking: `exponentiate` with `{'base': 3645, 'exponent': 2}`
 {'input': '将3的五次方与十二和三的和相乘，然后对整个结果进行平方。',
  'output': '3的五次方与十二和三的和相乘的结果是3645，然后将这个结果平方得到13286025。'}
  ```
+
+ 
